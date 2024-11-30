@@ -47,7 +47,7 @@ class Headhunter:
 
 
 hh = Headhunter(URL, 'log.txt')
-find_facation = 'python разработчик'
+find_facation = 'Python разработчик'
 city = 'Москва'
 hh.find(find_facation, city)
 print()

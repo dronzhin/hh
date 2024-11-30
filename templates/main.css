@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #0000FF;
+}
+
+p {
+    color: #666;
+}
+
+.proverb {
+    font-style: italic; /* Курсивный текст */
+    color: #555; /* Серый цвет текста */
+    border-left: 2px solid #ccc; /* Левая граница */
+    padding-left: 10px; /* Отступ слева */
+    margin: 20px 0; /* Отступ сверху и снизу */
+}
+
+.button {
+    display: inline-block; /* Чтобы кнопка вела себя как блок */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #007BFF; /* Цвет фона кнопки (синий) */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+}
+.button-container {
+    display: flex;              /* Используем flexbox для расположения кнопок */
+    gap: 20px;                  /* Устанавливаем расстояние между кнопками */
+}
+.form-group {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    margin-bottom: 15px; /* Отступ между полями */
+}
+
+.form-group label {
+    width: 150px; /* Ширина метки */
+    margin-right: 10px; /* Отступ между меткой и полем ввода */
+}
+
+.form-group input {
+    flex: 0.2; /* Поля ввода занимают оставшееся пространство */
+    padding: 6px; /* Отступы внутри полей ввода */
+}
+
+table {
+    border: 2px solid #007BFF; /* Синяя граница */
+    width: 50%; /* Ширина таблицы на 100% */
+    border-collapse: collapse; /* Убирает двойные границы */
+}
+
+th, td {
+    border: 1px solid #007BFF; /* Граница для ячеек */
+    text-align: center; /* Центрирование текста по горизонтали */
+    vertical-align: middle; /* Центрирование текста по вертикали */
+    padding: 10px; /* Отступы внутри ячеек */
+}
+
+th {
+    color: #007BFF; /* Цвет текста для заголовков */
+    background-color: #f4f4f4; /* Фоновый цвет для заголовков */
+}
