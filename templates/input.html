@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ввод данных</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css"> <!-- Подключение CSS-файла -->
+</head>
+<body>
+    <h1>Форма регистрации</h1>
+    <form action="hh.py" method="POST">
+        <div class="form-group">
+            <label for="city">Город:</label>
+            <input type="text" id="city" name="city" placeholder="Введите город поиска" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Position Worker">Должность:</label>
+            <input type="text" id="Position Worker" name="Position Worker" placeholder="Введите должность" required>
+        </div>
+
+        <div class="form-group">
+            <label for="skill1">1 Навык:</label>
+            <input type="text" id="skill1" name="skill1" placeholder="Введите 1 навык" required>
+        </div>
+
+        <div class="form-group">
+            <label for="skill2">2 Навык:</label>
+            <input type="text" id="skill2" name="skill2" placeholder="Введите 2 навык" required>
+        </div>
+
+        <div class="form-group">
+            <label for="skill3">3 Навык:</label>
+            <input type="text" id="skill3" name="skill3" placeholder="Введите 3 навык" required>
+        </div>
+        <div class="button-container">
+            <a href="contact.html" class="button">Отправить</a>
+            <a href="main.html" class="button">На главную</a>
+        </div>
+
+    </form>
+
+</body>
+</html>
