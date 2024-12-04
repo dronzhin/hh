@@ -1,56 +1,44 @@
 import requests
-import pprint
-
-URL = 'https://api.hh.ru/vacancies'
+from pprint import pprint
+import time
 
 class Headhunter:
-    def __init__(self, url, name_file):
+    def __init__(self, url):
         self._url = url
-        self._array_request = []
-        self.name = name_file
 
 
     def find(self, request, town):
         params = {'text': request + ' AND area: ' + town}
-
-        result = requests.get(self._url, params = params).json() # Делаем GET запрос и берем его json сожержимое
-        self._array_request.append(result)
-        text = f'Найдено {result['found']} вакансий'
-        print(text)
-        with open(self.name, 'w') as f:
-            f.write(text + '\n\n')
-
-
-    def responsibility(self, array):
-        # Создаем пустой словарь из неоходимых требований
+        skills = []
+        # Полечение общего результата
         count = 0
-        self.dict = {name: 0 for name in array}
-        for reqs in self._array_request:
-            for name in array:
-                for req in reqs['items']:
-                    if name in req['snippet']['responsibility']:
-                        self.dict[name] = 1 + self.dict[name]
-                        count += 1
-        f = open(self.name, 'a')
-        for key, value in self.dict.items():
-            text = f'{key} : {value} --  {value/count*100}%'
-            print(text)
-            f.write(text + '\n')
-        f.close()
+        result = requests.get(self._url, params = params).json() # Делаем GET запрос и берем его json сожержимое
+        for item in result['items']:
+            url_vac = item['url']
+            time.sleep(1)
+            print(f'Адресс {url_vac} обработан')
+            req = requests.get(url_vac).json()
+            skill = req['key_skills']
+            skills += skill
+            count += 1
+            if count == 20:
+                break
+        return self._dict_skills(skills)
 
-
-
-
-    @property
-    def array_request(self):
-        return self._array_request
-
-
-hh = Headhunter(URL, 'log.txt')
-find_facation = 'Python разработчик'
-city = 'Москва'
-hh.find(find_facation, city)
-print()
-
-find_responsibility = ['Python', 'SQL', 'Excel', 'Power BI', 'IaaS']
-hh.responsibility(find_responsibility)
+    def _dict_skills(self, skills):
+        array_skills = []
+        count_skills = []
+        for skill in skills:
+            value = skill['name']
+            print(f'{value=}')
+            if value in array_skills:
+                print('yes')
+                index = array_skills.index(value)
+                count_skills[index] += 1
+            else:
+                print('No')
+                array_skills.append(value)
+                count_skills.append(1)
+        combined = list(zip(count_skills, array_skills))
+        sorted_combined = sorted(combined, reverse=True)
+        return sorted_combined
