@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат</title>
+    <link href="/static/main.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Результат (таблица)</h1>
+    <table>
+        <tr>
+            <th>Навык</th>
+            <th>Количество</th>
+            <th>Процент</th>
+        </tr>
+        {% for skill in skills %}
+            <tr>
+                <td>{{skill[1]}}</td>
+                <td>{{skill[0]}}</td>
+                <td>{{skill[2]}} %</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div class="button-container">
+        <a href="/input/" class="button">Ввод параметров</a>
+        <a href="/" class="button">На главную</a>
+    </div>
+</body>
+</html>
