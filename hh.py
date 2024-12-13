@@ -30,13 +30,10 @@ class Headhunter:
         count_skills = []
         for skill in skills:
             value = skill['name']
-            print(f'{value=}')
             if value in array_skills:
-                print('yes')
                 index = array_skills.index(value)
                 count_skills[index] += 1
             else:
-                print('No')
                 array_skills.append(value)
                 count_skills.append(1)
         combined = list(zip(count_skills, array_skills))
